@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusJam | Collaborative Music</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            🎵 Campus<span>Jam</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#playlist">Playlist</a>
+            <a href="#sessions">Jam Sessions</a>
+            <a href="#about">About</a>
+        </div>
+
+        <button id="darkModeBtn">🌙</button>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                YOUR CAMPUS • YOUR MUSIC • YOUR COMMUNITY
+            </p>
+
+            <h1>
+                Music sounds
+                <span>better together.</span>
+            </h1>
+
+            <p class="hero-text">
+                CampusJam is a collaborative music platform where
+                students can share songs, vote for their favorites
+                and join exciting jam sessions.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn" id="addSongBtn">
+                    + Add Song
+                </button>
+
+                <a href="#playlist" class="secondary-btn">
+                    Explore Playlist
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- MUSIC PLAYER -->
+        <div class="music-card">
+
+            <div class="album">
+                🎧
+            </div>
+
+            <h3>Campus Vibes</h3>
+
+            <p>Today's community playlist</p>
+
+            <div class="music-progress">
+                <div></div>
+            </div>
+
+            <div class="music-controls">
+
+                <span>↶</span>
+
+                <button id="playBtn">
+                    ▶
+                </button>
+
+                <span>↷</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATS -->
+    <section class="stats">
+
+        <div class="stat">
+            <h2 id="songCount">0</h2>
+            <p>Songs</p>
+        </div>
+
+        <div class="stat">
+            <h2>248</h2>
+            <p>Students</p>
+        </div>
+
+        <div class="stat">
+            <h2 id="sessionCount">0</h2>
+            <p>Jam Sessions</p>
+        </div>
+
+        <div class="stat">
+            <h2>24</h2>
+            <p>Artists</p>
+        </div>
+
+    </section>
+
+
+    <!-- PLAYLIST -->
+    <section class="section" id="playlist">
+
+        <div class="section-header">
+
+            <div>
+                <p class="section-label">
+                    COMMUNITY PLAYLIST
+                </p>
+
+                <h2>Campus Playlist</h2>
+
+                <p>
+                    Songs recommended and voted by students.
+                </p>
+            </div>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 Search songs..."
+            >
+
+        </div>
+
+
+        <div class="song-list" id="songList"></div>
+
+    </section>
+
+
+    <!-- JAM SESSIONS -->
+    <section
+        class="section sessions-section"
+        id="sessions"
+    >
+
+        <div class="section-header">
+
+            <div>
+
+                <p class="section-label">
+                    MUSIC COMMUNITY
+                </p>
+
+                <h2>Upcoming Jam Sessions</h2>
+
+                <p>
+                    Meet other students and make music together.
+                </p>
+
+            </div>
+
+            <button
+                class="primary-btn"
+                id="createSessionBtn"
+            >
+                + Create Session
+            </button>
+
+        </div>
+
+
+        <div
+            class="session-grid"
+            id="sessionList"
+        ></div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <div>
+
+            <p class="section-label">
+                ABOUT CAMPUSJAM
+            </p>
+
+            <h2>
+                Built for students who love music.
+            </h2>
+
+        </div>
+
+        <p>
+            CampusJam makes it easy for students to discover
+            music, share playlists, find musicians and
+            organize jam sessions on campus.
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="logo">
+            🎵 Campus<span>Jam</span>
+        </div>
+
+        <p>
+            © 2026 CampusJam. Built for music lovers.
+        </p>
+
+    </footer>
+
+
+    <!-- ADD SONG MODAL -->
+    <div class="modal" id="songModal">
+
+        <div class="modal-box">
+
+            <button
+                class="close"
+                id="closeSongModal"
+            >
+                ×
+            </button>
+
+            <h2>Add a Song</h2>
+
+            <p>
+                Add your favorite song to the campus playlist.
+            </p>
+
+            <form id="songForm">
+
+                <label>
+                    Song Name
+
+                    <input
+                        type="text"
+                        id="songName"
+                        placeholder="Enter song name"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Artist
+
+                    <input
+                        type="text"
+                        id="artistName"
+                        placeholder="Enter artist name"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Genre
+
+                    <select id="genre">
+
+                        <option>Pop</option>
+                        <option>Rock</option>
+                        <option>Indie</option>
+                        <option>Hip Hop</option>
+                        <option>Lo-fi</option>
+
+                    </select>
+                </label>
+
+                <button
+                    type="submit"
+                    class="primary-btn full"
+                >
+                    Add Song
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- CREATE SESSION MODAL -->
+    <div class="modal" id="sessionModal">
+
+        <div class="modal-box">
+
+            <button
+                class="close"
+                id="closeSessionModal"
+            >
+                ×
+            </button>
+
+            <h2>Create Jam Session</h2>
+
+            <p>
+                Create a new music session for students.
+            </p>
+
+            <form id="sessionForm">
+
+                <label>
+                    Session Name
+
+                    <input
+                        type="text"
+                        id="sessionName"
+                        placeholder="Friday Night Jam"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Date
+
+                    <input
+                        type="date"
+                        id="sessionDate"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Location
+
+                    <input
+                        type="text"
+                        id="sessionLocation"
+                        placeholder="College Auditorium"
+                        required
+                    >
+                </label>
+
+                <button
+                    type="submit"
+                    class="primary-btn full"
+                >
+                    Create Session
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
